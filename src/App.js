@@ -1,11 +1,15 @@
 import './App.css';
+import  Search from "./Search/Search";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <p>Hello </p>
-    </div>
+  <div className="App">
+    <Search></Search>
+  </div>
   );
 }
 
 export default App;
+  
