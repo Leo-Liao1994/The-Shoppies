@@ -1,7 +1,8 @@
 .search-section {
    background-image: url('https://www.templatemonster.com/blog/wp-content/uploads/2017/07/loader.gif');
    background-position: 50% 0 ;
-   height: 60vh
+   height: 56vh;
+   color:white
 }
 
 .title{

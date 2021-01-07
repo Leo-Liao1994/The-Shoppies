@@ -6,7 +6,8 @@ const search = props => {
   return (
     <div className = "search-section">
       <p className = "title">The Shoppies</p>
-      <input placeholder = "find your faviour movies"></input>
+      <input placeholder = "find your favourite movies" 
+      onChange = {props.input}></input>
     </div>
   )
 }
