@@ -10,25 +10,24 @@ import axios from 'axios';
 class App extends Component  {
 state = {
   userInput: "", 
-  result: {title: ""}
+  result: ""
 }
 
 
 inputHandler = (event) => {
-  this.setState( {
-      userInput : `Search result for "${event.target.value}":`
-  }) 
-
   axios.get(`https://www.omdbapi.com/?s=${event.target.value}&apikey=1541d577`) 
-.then(res => {
-  this.setState( 
-    {
-      
-    }
-  )
-})
+  .then(res => {
+    // console.log(res.data.Search)
+    this.setState({userInput: `Search result for "${event.target.value}":`})
+    if(res.data.Search !== undefined){
+      for(let movies of res.data.Search) {
+        console.log(movies)
+      this.setState( 
+       { result: JSON.stringify(movies)}) 
+      }
+    } else this.setState({ result:"" }) 
+  })
 }
-
 
 
 render (){
@@ -42,7 +41,7 @@ render (){
   { this.state.userInput.length >= 22 ?
     <SearchResult 
     userInput = {this.state.userInput}
-    title = {this.state.result.title}
+    result = {this.state.result}
 
   ></SearchResult> : <NoResult></NoResult>
   }

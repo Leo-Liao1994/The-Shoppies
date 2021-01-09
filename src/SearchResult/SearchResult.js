@@ -5,22 +5,15 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 const search_result = props => {
-  const { img, title, year , rating, userInput} = props;
+  const { img, title, year , rating, result, userInput} = props;
 
   return (
     <div className = "search_result-section">
       <h5 className = "result_for" > {userInput}</h5>
 
-      <Card style={{ width: '18rem' }}>
-       <Card.Img variant="top" src={img} />
-      <Card.Body>
-      <Card.Title>{title}</Card.Title>
-      <Card.Title>{year}</Card.Title>
-      <Card.Title> ⭐{rating}</Card.Title>
+    <p> {result}</p>
        
       <Button variant="primary">Add to Nomination</Button>
-  </Card.Body>
-  </Card>
 
 
     </div>
