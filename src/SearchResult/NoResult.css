@@ -1,0 +1,9 @@
+.no_result {
+  height: 56vh;
+}
+
+.no_result_message {
+  text-align: center;
+  margin-top:5%;
+  color:rgb(94, 89, 89)
+}

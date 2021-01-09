@@ -5,8 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css"
 const search = props => {
   return (
     <div className = "search-section">
-      <p className = "title">The Shoppies</p>
-      <input placeholder = "find your favourite movies" 
+      <p className = "title">The Shoppies </p>
+      <input placeholder = "Find your favourite movies" 
       onChange = {props.input}></input>
     </div>
   )

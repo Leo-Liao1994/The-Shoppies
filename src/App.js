@@ -2,20 +2,34 @@ import './App.css';
 import { React, Component } from "react"
 import  Search from "./Search/Search";
 import  SearchResult from "./SearchResult/SearchResult";
+import  NoResult from "./SearchResult/NoResult";
+import axios from 'axios';
 
 
 
 class App extends Component  {
 state = {
-  userInput: ""
+  userInput: "", 
+  result: {title: ""}
 }
 
 
 inputHandler = (event) => {
   this.setState( {
       userInput : `Search result for "${event.target.value}":`
-  })
+  }) 
+
+  axios.get(`https://www.omdbapi.com/?s=${event.target.value}&apikey=1541d577`) 
+.then(res => {
+  this.setState( 
+    {
+      
+    }
+  )
+})
 }
+
+
 
 render (){
 
@@ -28,7 +42,9 @@ render (){
   { this.state.userInput.length >= 22 ?
     <SearchResult 
     userInput = {this.state.userInput}
-  ></SearchResult> : <p>please search</p>
+    title = {this.state.result.title}
+
+  ></SearchResult> : <NoResult></NoResult>
   }
   </div>
   );

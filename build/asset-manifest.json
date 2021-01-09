@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/The-Shoppies/static/css/main.3dab1bb5.chunk.css",
-    "main.js": "/The-Shoppies/static/js/main.acbee8be.chunk.js",
-    "main.js.map": "/The-Shoppies/static/js/main.acbee8be.chunk.js.map",
-    "runtime-main.js": "/The-Shoppies/static/js/runtime-main.f904e394.js",
-    "runtime-main.js.map": "/The-Shoppies/static/js/runtime-main.f904e394.js.map",
+    "main.css": "/The-Shoppies/static/css/main.7de6ac8c.chunk.css",
+    "main.js": "/The-Shoppies/static/js/main.4f4db509.chunk.js",
+    "main.js.map": "/The-Shoppies/static/js/main.4f4db509.chunk.js.map",
+    "runtime-main.js": "/The-Shoppies/static/js/runtime-main.fa22f97e.js",
+    "runtime-main.js.map": "/The-Shoppies/static/js/runtime-main.fa22f97e.js.map",
     "static/css/2.ae9f1eb3.chunk.css": "/The-Shoppies/static/css/2.ae9f1eb3.chunk.css",
-    "static/js/2.97652be0.chunk.js": "/The-Shoppies/static/js/2.97652be0.chunk.js",
-    "static/js/2.97652be0.chunk.js.map": "/The-Shoppies/static/js/2.97652be0.chunk.js.map",
-    "static/js/3.2fe5c3da.chunk.js": "/The-Shoppies/static/js/3.2fe5c3da.chunk.js",
-    "static/js/3.2fe5c3da.chunk.js.map": "/The-Shoppies/static/js/3.2fe5c3da.chunk.js.map",
+    "static/js/2.0bdd4473.chunk.js": "/The-Shoppies/static/js/2.0bdd4473.chunk.js",
+    "static/js/2.0bdd4473.chunk.js.map": "/The-Shoppies/static/js/2.0bdd4473.chunk.js.map",
+    "static/js/3.e04d101f.chunk.js": "/The-Shoppies/static/js/3.e04d101f.chunk.js",
+    "static/js/3.e04d101f.chunk.js.map": "/The-Shoppies/static/js/3.e04d101f.chunk.js.map",
     "index.html": "/The-Shoppies/index.html",
     "static/css/2.ae9f1eb3.chunk.css.map": "/The-Shoppies/static/css/2.ae9f1eb3.chunk.css.map",
-    "static/css/main.3dab1bb5.chunk.css.map": "/The-Shoppies/static/css/main.3dab1bb5.chunk.css.map",
-    "static/js/2.97652be0.chunk.js.LICENSE.txt": "/The-Shoppies/static/js/2.97652be0.chunk.js.LICENSE.txt"
+    "static/css/main.7de6ac8c.chunk.css.map": "/The-Shoppies/static/css/main.7de6ac8c.chunk.css.map",
+    "static/js/2.0bdd4473.chunk.js.LICENSE.txt": "/The-Shoppies/static/js/2.0bdd4473.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f904e394.js",
+    "static/js/runtime-main.fa22f97e.js",
     "static/css/2.ae9f1eb3.chunk.css",
-    "static/js/2.97652be0.chunk.js",
-    "static/css/main.3dab1bb5.chunk.css",
-    "static/js/main.acbee8be.chunk.js"
+    "static/js/2.0bdd4473.chunk.js",
+    "static/css/main.7de6ac8c.chunk.css",
+    "static/js/main.4f4db509.chunk.js"
   ]
 }
