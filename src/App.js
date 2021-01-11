@@ -5,32 +5,52 @@ import  SearchResult from "./SearchResult/SearchResult";
 import  NoResult from "./SearchResult/NoResult";
 import axios from 'axios';
 
+const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
 
 
 class App extends Component  {
 state = {
   userInput: "", 
-  result: ""
+  result: [{Title: '',}]
 }
 
-
 inputHandler = (event) => {
-  axios.get(`https://www.omdbapi.com/?s=${event.target.value}&apikey=1541d577`) 
+  let moviesResult = []
+
+  axios.get(`https://www.omdbapi.com/?s=${event.target.value}&apikey=${API_KEY}`) 
   .then(res => {
-    // console.log(res.data.Search)
     this.setState({userInput: `Search result for "${event.target.value}":`})
     if(res.data.Search !== undefined){
-      for(let movies of res.data.Search) {
-        console.log(movies)
-      this.setState( 
-       { result: JSON.stringify(movies)}) 
+      for(let movies of res.data.Search.slice(0,6)) {
+        moviesResult.push(movies)
       }
-    } else this.setState({ result:"" }) 
+      this.setState( 
+        {result: moviesResult}) 
+    }  
+
+    console.log(this.state.result)
   })
 }
 
 
 render (){
+
+  let results = null; 
+
+
+      let resultState = (result) => {
+        return <SearchResult
+        userInput = {this.state.userInput}
+        title = {result.Title}
+        year = {result.Year}
+        />
+      }
+      if( this.state.userInput.length >= 22) {
+      results = (
+          <div >
+            {this.state.result.map(resultState)}
+          </div> 
+      )} else results = <NoResult></NoResult>
 
  
   return (
@@ -38,13 +58,7 @@ render (){
     <Search 
     input = {this.inputHandler} 
     ></Search>
-  { this.state.userInput.length >= 22 ?
-    <SearchResult 
-    userInput = {this.state.userInput}
-    result = {this.state.result}
-
-  ></SearchResult> : <NoResult></NoResult>
-  }
+    {results}
   </div>
   );
   } 
