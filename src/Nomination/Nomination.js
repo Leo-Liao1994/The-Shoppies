@@ -32,7 +32,7 @@ function Nomination(props) {
         <Modal.Body>
         <ListGroup as="ul">
     <ListGroup.Item as="li" >
-      {props.nomination}
+      {props.nominateTitle}
       </ListGroup.Item>
     </ListGroup>
         </Modal.Body>

@@ -13,7 +13,7 @@ class App extends Component  {
 state = {
   userInput: "", 
   result: [{id:'', Title: '', Year: ''}], 
-  nomination : []
+  nomination : [{Title: ''}]
 }
 
 inputHandler = (event) => {
@@ -29,14 +29,15 @@ inputHandler = (event) => {
       this.setState( 
         {result: moviesResult}) 
     } else this.setState( 
-      {result: [{id:"", Title: '', Year: ''}]}) 
+      {result: [{id:'', Title: '', Year: ''}]}) 
   })
 }
 
 nominateHandler = (index) => {
    const  nomination= [...this.state.nomination]; 
-   nomination.push(this.state.result[index].Title) 
+   nomination.push(this.state.result[index])
    this.setState({nomination: nomination}) 
+   console.log(this.state.nomination)
 }
 
 
@@ -44,6 +45,7 @@ render (){
 
   let results = null; 
   let search = null; 
+  let nominateList = null; 
 
       const resultState = (result,index) => {
         if(result.Title !== "") {
@@ -55,6 +57,19 @@ render (){
         /> 
         }
       }
+
+      const nominationState = (list) => {
+        return <Nomination 
+        id = {list.imdbID}
+        nominateTitle = {list.Title}
+        />  
+      }
+
+      nominateList = ( 
+      <div >
+        {this.state.nomination.map(nominationState)}
+      </div> )
+      
 
       if( this.state.userInput.length >= 22) {
        search = (
@@ -74,9 +89,7 @@ render (){
     ></Search>
     {search}
     {results}
-    <Nomination 
-    nomination = {this.state.nomination}
-    ></Nomination>
+    {nominateList}
   </div>
   );
   } 
