@@ -40,6 +40,12 @@ nominateHandler = (index) => {
    console.log(this.state.nomination)
 }
 
+removeNominationHandler = (index) => {
+  const nomination= [...this.state.nomination]; 
+  nomination.splice(index,1) 
+  this.setState({nomination: nomination}) 
+
+}
 
 render (){
 
@@ -58,10 +64,11 @@ render (){
         }
       }
 
-      const nominationState = (list) => {
+      const nominationState = (list, index) => {
         return <List 
         id = {list.imdbID}
         nominateTitle = {list.Title}
+        removeNomination = {() => this.removeNominationHandler(index)}
         />  
       }
       nominateList = ( 

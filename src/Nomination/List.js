@@ -9,7 +9,7 @@ const list = props => {
    <div>
      <ListGroup >
      <p> {props.nominateTitle}
-      <Button variant="warning" className = "nominate" onClick = {null}>Remove</Button>
+      <Button variant="warning" className = "nominate" onClick = {props.removeNomination}>Remove</Button>
       </p>
       </ListGroup>
    </div>
