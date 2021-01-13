@@ -12,7 +12,7 @@ const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
 class App extends Component  {
 state = {
   userInput: "", 
-  result: [{ Title: '', Year: ''}], 
+  result: [{id:'', Title: '', Year: ''}], 
   nomination : []
 }
 
@@ -23,18 +23,20 @@ inputHandler = (event) => {
   .then(res => {
     this.setState({userInput: `Search result for "${event.target.value}":`})
     if(res.data.Search !== undefined){
-      for(let movies of res.data.Search.slice(0,6)) {
+      for(let movies of res.data.Search.slice(0,8)) {
         moviesResult.push(movies)
       }
       this.setState( 
         {result: moviesResult}) 
-    } 
-    console.log(this.state.result)
+    } else this.setState( 
+      {result: [{id:"", Title: '', Year: ''}]}) 
   })
 }
 
-addNominationHandler = () => {
-
+nominateHandler = (index) => {
+   const  nomination= [...this.state.nomination]; 
+   nomination.push(this.state.result[index].Title) 
+   this.setState({nomination: nomination}) 
 }
 
 
@@ -43,13 +45,15 @@ render (){
   let results = null; 
   let search = null; 
 
-      const resultState = (result) => {
-
+      const resultState = (result,index) => {
+        if(result.Title !== "") {
         return <SearchResult
-        
+        id = {result.imdbID}
         title = {result.Title}
-        year = {result.Year}
-        />
+        year = {`(${result.Year})`} 
+        nominate = {() => this.nominateHandler(index)}
+        /> 
+        }
       }
 
       if( this.state.userInput.length >= 22) {
@@ -70,7 +74,9 @@ render (){
     ></Search>
     {search}
     {results}
-    <Nomination></Nomination>
+    <Nomination 
+    nomination = {this.state.nomination}
+    ></Nomination>
   </div>
   );
   } 

@@ -4,6 +4,7 @@ import "./Nomination.css"
 import Button from 'react-bootstrap/Button'
 import "bootstrap/dist/css/bootstrap.min.css"
 import Modal from 'react-bootstrap/Modal'
+import ListGroup from 'react-bootstrap/ListGroup'
 
 
 function Nomination(props) {
@@ -29,10 +30,11 @@ function Nomination(props) {
           <Modal.Title>Nominations</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-         {props.nomination} 
-         <Button variant="warning" onClick={handleClose}>
-            Close
-          </Button>
+        <ListGroup as="ul">
+    <ListGroup.Item as="li" >
+      {props.nomination}
+      </ListGroup.Item>
+    </ListGroup>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="warning" onClick={handleClose}>

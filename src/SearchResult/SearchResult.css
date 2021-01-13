@@ -1,5 +1,5 @@
 .search_result-section {
-  height: 25vh;
+  height: 33vh;
   color:black
 }
 
@@ -10,7 +10,8 @@
 } 
 
 .btn.nominate {
-  padding-left: 200px
+  float: right;
+
 }
 
 
