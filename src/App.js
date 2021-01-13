@@ -19,7 +19,7 @@ state = {
 
 inputHandler = (event) => {
 let moviesResult = []
-  axios.get(`https://www.omdbapi.com/?s=${event.target.value}&apikey=${API_KEY}`) 
+  axios.get(`https://www.omdbapi.com/?s=${event.target.value}&apikey=1541d577`) 
   .then(res => {
     this.setState({userInput: `Search result for "${event.target.value}":`})
     if(res.data.Search !== undefined){
