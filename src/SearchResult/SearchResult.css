@@ -1,18 +1,16 @@
 .search_result-section {
-  height: 56vh;
+  height: 25vh;
   color:black
 }
 
-.posts__item{
-  margin:20px 17.5%;
-  width:65%;
-  border: solid 1.5px rgb(20, 20, 20);
-  border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}  
 
 .result_for {
   margin-top:15px;
   margin-left:17%
+} 
+
+.btn.nominate {
+  padding-left: 200px
 }
+
 

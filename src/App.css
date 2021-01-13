@@ -1,6 +1,7 @@
 .App {
   background-color:rgba(182, 182, 182, 0.867);
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh
 }
 
 .App-logo {

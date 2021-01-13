@@ -5,24 +5,18 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 const search_result = props => {
-  const { img, title, year , rating, userInput} = props;
+  const {  title, year , rating } = props;
 
   return (
     <div className = "search_result-section">
-      <h5 className = "result_for" > {userInput}</h5>
-
-      <Card style={{ width: '18rem' }}>
-  {/* <Card.Img variant="top" src= "img" /> */}
-  <Card.Body>
+      <Card style={{ width: '40rem', marginLeft: '400px' }}>
+  <Card.Body className = 'result'>
     <Card.Title>{title}</Card.Title>
     <Card.Title>{year}</Card.Title>
-    <Button variant="primary">Add to Nomination</Button>
+    <Button variant="warning" className = "nominate">Nominate</Button>
 
   </Card.Body>
 </Card>
-
-
-
     </div>
   )
 }
