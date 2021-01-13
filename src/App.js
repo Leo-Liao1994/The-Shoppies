@@ -4,6 +4,7 @@ import  Search from "./Search/Search";
 import  Nomination from "./Nomination/Nomination";
 import  SearchResult from "./SearchResult/SearchResult";
 import  NoResult from "./SearchResult/NoResult";
+import  List from "./Nomination/List";
 import axios from 'axios';
 
 const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
@@ -13,19 +14,18 @@ class App extends Component  {
 state = {
   userInput: "", 
   result: [{id:'', Title: '', Year: ''}], 
-  nomination : [{Title: ''}]
+  nomination : []
 }
 
 inputHandler = (event) => {
-  
-  let moviesResult = []
+let moviesResult = []
   axios.get(`https://www.omdbapi.com/?s=${event.target.value}&apikey=${API_KEY}`) 
   .then(res => {
     this.setState({userInput: `Search result for "${event.target.value}":`})
     if(res.data.Search !== undefined){
       for(let movies of res.data.Search.slice(0,8)) {
         moviesResult.push(movies)
-      }
+       }
       this.setState( 
         {result: moviesResult}) 
     } else this.setState( 
@@ -34,7 +34,7 @@ inputHandler = (event) => {
 }
 
 nominateHandler = (index) => {
-   const  nomination= [...this.state.nomination]; 
+   const nomination= [...this.state.nomination]; 
    nomination.push(this.state.result[index])
    this.setState({nomination: nomination}) 
    console.log(this.state.nomination)
@@ -59,16 +59,16 @@ render (){
       }
 
       const nominationState = (list) => {
-        return <Nomination 
+        return <List 
         id = {list.imdbID}
         nominateTitle = {list.Title}
         />  
       }
-
       nominateList = ( 
       <div >
         {this.state.nomination.map(nominationState)}
-      </div> )
+      </div>)
+      
       
 
       if( this.state.userInput.length >= 22) {
@@ -89,7 +89,10 @@ render (){
     ></Search>
     {search}
     {results}
-    {nominateList}
+    <Nomination 
+    list = {nominateList}
+    >
+    </Nomination>
   </div>
   );
   } 
