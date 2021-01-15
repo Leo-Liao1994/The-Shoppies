@@ -13,7 +13,7 @@ const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
 class App extends Component  {
 state = {
   userInput: "", 
-  result: [{id:'', Title: '', Year: ''}], 
+  result: [], 
   nomination : []
 }
 
@@ -23,7 +23,8 @@ let moviesResult = []
   .then(res => {
     this.setState({userInput: `Search result for "${event.target.value}":`})
     if(res.data.Search !== undefined){
-      for(let movies of res.data.Search.slice(0,8)) {
+      for(let movies of res.data.Search.slice(0,6)) {
+        movies.nominated = false
         moviesResult.push(movies)
        }
       this.setState( 
@@ -35,17 +36,21 @@ let moviesResult = []
 
 nominateHandler = (index) => {
    const nomination= [...this.state.nomination]; 
+   const result = [...this.state.result]
+   result[index].nominated = true;
    nomination.push(this.state.result[index])
-   this.setState({nomination: nomination}) 
-   console.log(this.state.nomination)
-}
+   this.setState({nomination: nomination, result: result})
+   console.log(index)
+  }
 
 removeNominationHandler = (index) => {
   const nomination= [...this.state.nomination]; 
-  nomination.splice(index,1) 
-  this.setState({nomination: nomination}) 
-
+  const result = [...this.state.result]
+  result[result.indexOf(nomination[index])].nominated = false;
+   nomination.splice(index,1)
+  this.setState({nomination: nomination,result: result}) 
 }
+
 
 render (){
 
@@ -53,15 +58,18 @@ render (){
   let search = null; 
   let nominateList = null; 
 
+
       const resultState = (result,index) => {
         if(result.Title !== "") {
         return <SearchResult
         id = {result.imdbID}
         title = {result.Title}
         year = {`(${result.Year})`} 
+        nominated = {result.nominated}
         nominate = {() => this.nominateHandler(index)}
+        maxLimit = {this.state.nomination.length >= 5? true : false}
         /> 
-        }
+        }  
       }
 
       const nominationState = (list, index) => {
@@ -71,6 +79,7 @@ render (){
         removeNomination = {() => this.removeNominationHandler(index)}
         />  
       }
+
       nominateList = ( 
       <div >
         {this.state.nomination.map(nominationState)}
@@ -106,4 +115,3 @@ render (){
 }
 
 export default App;
-  

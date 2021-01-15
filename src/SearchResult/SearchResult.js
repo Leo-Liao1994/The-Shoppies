@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 const search_result = props => {
-  const {  title, year, nominate} = props;
+  const {  title, year, nominate,nominated,maxLimit } = props;
 
   return (
     <div className = "search_result-section">
@@ -13,8 +13,7 @@ const search_result = props => {
   <Card.Body className = 'result'>
     <Card.Title>{title}</Card.Title>
     <Card.Title>{year}</Card.Title>
-    <Button variant="warning" className = "nominate" onClick = {nominate}>Nominate</Button>
-
+    <Button variant="warning" className = "nominate" onClick = {nominate} disabled = {nominated || maxLimit } >Nominate</Button>
   </Card.Body>
 </Card>
     </div>

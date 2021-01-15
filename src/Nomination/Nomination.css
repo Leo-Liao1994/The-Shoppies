@@ -1,6 +1,8 @@
 .nominationButton{
-float: top;
-position: fixed;
+position: absolute;
+padding: 20px; 
+margin-left: 85%; 
+margin-bottom: 20%;
 } 
 
 .box {
