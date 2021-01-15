@@ -1,8 +1,10 @@
+
 .nominationButton{
-position: absolute;
+position: fixed;
 padding: 20px; 
 margin-left: 85%; 
-margin-bottom: 20%;
+margin-top: 42%;
+border-radius: 50px;
 } 
 
 .box {

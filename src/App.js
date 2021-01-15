@@ -1,5 +1,6 @@
 import './App.css';
 import { React, Component } from "react"
+import Alert from 'react-bootstrap/Button'
 import  Search from "./Search/Search";
 import  Nomination from "./Nomination/Nomination";
 import  SearchResult from "./SearchResult/SearchResult";
@@ -14,7 +15,8 @@ class App extends Component  {
 state = {
   userInput: "", 
   result: [], 
-  nomination : []
+  nomination : [],
+  showAlert: false
 }
 
 inputHandler = (event) => {
@@ -39,8 +41,10 @@ nominateHandler = (index) => {
    const result = [...this.state.result]
    result[index].nominated = true;
    nomination.push(this.state.result[index])
-   this.setState({nomination: nomination, result: result})
-   console.log(index)
+   this.setState({nomination: nomination, result: result}) 
+   if(this.state.nomination.length >= 4) {
+    this.setState({showAlert: true})
+   }
   }
 
 removeNominationHandler = (index) => {
@@ -100,15 +104,21 @@ render (){
  
   return (
   <div className="App">
+     <Nomination 
+    list = {nominateList}
+    >
+    </Nomination>
     <Search 
     input = {this.inputHandler} 
     ></Search>
     {search}
+    { this.state.showAlert? 
+    <Alert className = 'alert' variant='success' >
+    You have reached the maximum number of nomination! Thank you! 
+    </Alert> : null
+    }
     {results}
-    <Nomination 
-    list = {nominateList}
-    >
-    </Nomination>
+   
   </div>
   );
   } 

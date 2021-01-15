@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card'
 const search = props => {
   return (
     <div className = "search-section">
+      <p className = 'toplogo'> The Shoppies</p>
       <p className = "title">Movie awards for entrepreneurs </p>
       <input placeholder = "Find your favourite movies" 
       onChange = {props.input}></input>

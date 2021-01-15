@@ -14,9 +14,9 @@ function Nomination(props) {
   const handleShow = () => setShow(true);
 
   return (
-    <>
+    <div className = 'nomination'>
       <Button variant="warning"  className = "nominationButton" onClick={handleShow}>
-        Nominations
+       My Nominations
       </Button>
 
       <Modal
@@ -38,7 +38,7 @@ function Nomination(props) {
         </Modal.Footer>
       </Modal>
     
-    </>
+    </div>
   );
 }
 

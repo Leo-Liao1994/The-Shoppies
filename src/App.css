@@ -30,6 +30,12 @@
   color: #61dafb;
 }
 
+.alert {
+  position: absolute;
+  margin-left: 40%;
+  margin-top: 1%;
+  display: none
+}
 
 
 @keyframes App-logo-spin {
