@@ -31,8 +31,7 @@ let moviesResult = []
        }
       this.setState( 
         {result: moviesResult}) 
-    } else this.setState( 
-      {result: [{id:'', Title: '', Year: ''}]}) 
+    } 
   })
 }
 
@@ -44,7 +43,7 @@ nominateHandler = (index) => {
    this.setState({nomination: nomination, result: result}) 
    if(this.state.nomination.length >= 4) {
     this.setState({showAlert: true})
-   }
+   } 
   }
 
 removeNominationHandler = (index) => {
@@ -53,6 +52,9 @@ removeNominationHandler = (index) => {
   result[result.indexOf(nomination[index])].nominated = false;
    nomination.splice(index,1)
   this.setState({nomination: nomination,result: result}) 
+  if(this.state.nomination.length <= 5) {
+    this.setState({showAlert: false})
+   } 
 }
 
 
