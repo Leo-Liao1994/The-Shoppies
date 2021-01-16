@@ -19,16 +19,26 @@ state = {
   showAlert: false
 }
 
+
+
 inputHandler = (event) => {
+let nominationTitle= []
 let moviesResult = []
   axios.get(`https://www.omdbapi.com/?s=${event.target.value}&apikey=1541d577`) 
   .then(res => {
+
+    this.state.nomination.forEach(element => nominationTitle.push(element.Title))
+
     this.setState({userInput: `Search result for "${event.target.value}":`})
     if(res.data.Search !== undefined){
-      console.log(res.data.Search)
       for(let movies of res.data.Search.slice(0,6)) {
+      if(nominationTitle.indexOf(movies.Title) === -1){
         movies.nominated = false
         moviesResult.push(movies)
+        } else {
+          movies.nominated = true
+          moviesResult.push(movies)
+        }
        }
       this.setState( 
         {result: moviesResult}) 
@@ -38,10 +48,8 @@ let moviesResult = []
 
 nominateHandler = (index) => {
    const nomination= [...this.state.nomination]; 
-   const result = [...this.state.result]
-   result[index].nominated = true;
    nomination.push(this.state.result[index])
-   this.setState({nomination: nomination, result: result}) 
+   this.setState({nomination: nomination}) 
    if(this.state.nomination.length >= 4) {
     this.setState({showAlert: true})
    } 
@@ -49,22 +57,21 @@ nominateHandler = (index) => {
 
 removeNominationHandler = (index) => {
   const nomination= [...this.state.nomination]; 
-  const result = [...this.state.result]
-  result[result.indexOf(nomination[index])].nominated = false;
-   nomination.splice(index,1)
-  this.setState({nomination: nomination,result: result}) 
+  nomination.splice(index,1)
+  this.setState({nomination: nomination}) 
   if(this.state.nomination.length <= 5) {
     this.setState({showAlert: false})
    } 
 }
-
 
 render (){
 
   let results = null; 
   let search = null; 
   let nominateList = null; 
+  let nominationTitle= []
 
+  this.state.nomination.forEach(element => nominationTitle.push(element.Title))
 
       const resultState = (result,index) => {
         if(result.Title !== "") {
@@ -72,7 +79,7 @@ render (){
         id = {result.imdbID}
         title = {result.Title}
         year = {`(${result.Year})`} 
-        nominated = {result.nominated}
+        nominated = {nominationTitle.indexOf(result.Title) === -1 ? false : true}
         nominate = {() => this.nominateHandler(index)}
         maxLimit = {this.state.nomination.length >= 5? true : false}
         /> 
@@ -121,7 +128,6 @@ render (){
     </Alert> : null
     }
     {results}
-   
   </div>
   );
   } 
