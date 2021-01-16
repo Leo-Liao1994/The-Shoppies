@@ -1,5 +1,6 @@
 .search-section {
-   background-image: url('https://www.templatemonster.com/blog/wp-content/uploads/2017/07/loader.gif');
+   background-image:-webkit-linear-gradient(rgba(0, 0, 0, 2), rgba(0, 0, 0, 0.2)),
+    url('https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2018/03/13153742/RT_300EssentialMovies_700X250.jpg');
    background-position: 50% 0 ;
    height: 56vh;
    color:white

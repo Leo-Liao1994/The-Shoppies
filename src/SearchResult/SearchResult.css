@@ -9,9 +9,16 @@
   margin-left:18%
 } 
 
-.btn.nominate {
+.nominate {
   float: right;
-
+  background-color:#007f60;
+  border-color: #007f60;
+  color:white;
+  padding: 6px 15px;
+  border-radius: 50px;
 }
 
 
+.nominate :hover {
+  box-shadow: 5px 10px
+}

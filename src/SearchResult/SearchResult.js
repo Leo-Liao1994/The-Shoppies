@@ -14,7 +14,7 @@ const search_result = props => {
   <Card.Body className = 'result'>
     <Card.Title>{title}</Card.Title>
     <Card.Title>{year}</Card.Title>
-    <Button variant="warning" className = "nominate" onClick = {nominate} disabled = {nominated || maxLimit } >Nominate</Button>
+    <Button  variant="custom" className = "nominate" onClick = {nominate} disabled = {nominated || maxLimit } >Nominate</Button>
   </Card.Body>
 </Card>
     </div>

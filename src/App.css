@@ -1,5 +1,5 @@
 .App {
-  background-color:rgba(182, 182, 182, 0.867);
+  background-color:#fbf7ed;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh
 }
@@ -36,6 +36,7 @@
   margin-top: 1%;
   display: none
 }
+
 
 
 @keyframes App-logo-spin {

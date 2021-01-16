@@ -25,6 +25,7 @@ let moviesResult = []
   .then(res => {
     this.setState({userInput: `Search result for "${event.target.value}":`})
     if(res.data.Search !== undefined){
+      console.log(res.data.Search)
       for(let movies of res.data.Search.slice(0,6)) {
         movies.nominated = false
         moviesResult.push(movies)
@@ -93,7 +94,7 @@ render (){
       
       
 
-      if( this.state.userInput.length >= 22) {
+      if( this.state.userInput.length >= 24) {
        search = (
        <h5 className = "result_for" > {this.state.userInput}</h5>)
 

@@ -15,7 +15,7 @@ function Nomination(props) {
 
   return (
     <div className = 'nomination'>
-      <Button variant="warning"  className = "nominationButton" onClick={handleShow}>
+      <Button variant="custom"  className = "nominationButton" onClick={handleShow}>
        My Nominations
       </Button>
 
@@ -32,7 +32,7 @@ function Nomination(props) {
         {props.list}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="warning" onClick={handleClose}>
+          <Button variant="custom" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
