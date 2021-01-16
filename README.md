@@ -1,21 +1,18 @@
-# Getting Started with Create React App
+# The Shoppies Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A website built with React that can search OMDB for movies, and allow the user to save their favourite films they feel should be up for nomination. When they've selected 5 nominees they should be notified they're finished.
 
-## Available Scripts
+## Built with
 
-In the project directory, you can run:
+- REACT 
+- React Bootstrap 
+- Axios 
+- OMDB API 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# DEMO link : 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
+(https://shoppies-project.herokuapp.com/)
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
