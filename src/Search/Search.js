@@ -8,7 +8,7 @@ const search = props => {
     <div className = "search-section">
       <p className = 'toplogo'> The Shoppies</p>
       <p className = "title">Movie awards for entrepreneurs </p>
-      <input placeholder = " Enter 3 letters for the result to show" 
+      <input placeholder = " Enter 3 letters for the result to show"  className = "userinput"
       onChange = {props.input}></input>
     </div>
   )

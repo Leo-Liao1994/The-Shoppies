@@ -10,7 +10,7 @@ const search_result = props => {
   return (
     <div className = "search_result-section">
       
-      <Card style={{ width: '40rem', marginLeft: '400px' }}>
+      <Card className = "card">
   <Card.Body className = 'result'>
     <Card.Title>{title}</Card.Title>
     <Card.Title>{year}</Card.Title>

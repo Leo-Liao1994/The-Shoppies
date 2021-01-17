@@ -1,6 +1,5 @@
 .search_result-section {
   height: 25vh;
-  color:black;
 }
 
 
@@ -21,4 +20,8 @@
 
 .nominate :hover {
   box-shadow: 5px 10px
+}
+.card{ 
+  width: 40em;
+  margin: 0 auto;
 }

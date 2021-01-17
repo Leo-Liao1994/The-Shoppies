@@ -16,7 +16,7 @@ function Nomination(props) {
   return (
     <div className = 'nomination'>
       <Button variant="custom"  className = "nominationButton" onClick={handleShow}>
-       My Nominations
+       My Nominees
       </Button>
 
       <Modal
@@ -26,7 +26,7 @@ function Nomination(props) {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Nominations</Modal.Title>
+          <Modal.Title>Nominees</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         {props.list}
