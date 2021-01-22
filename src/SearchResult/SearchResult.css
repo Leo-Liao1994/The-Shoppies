@@ -25,3 +25,10 @@
   width: 40em;
   margin: 0 auto;
 }
+ 
+
+@media (max-width: 500px) {
+  .card{
+    width: 20em
+  }
+}

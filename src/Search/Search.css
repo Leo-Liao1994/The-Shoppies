@@ -3,7 +3,7 @@
     url('https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2018/03/13153742/RT_300EssentialMovies_700X250.jpg');
    background-position: 50% 0 ;
    height: 56vh;
-   color:white;
+   color:white
 }
 
 .toplogo {
@@ -31,4 +31,16 @@
   position: relative; 
   display:block;
   margin:0 auto;
+}
+
+@media (max-width: 500px) {
+  .search-section {
+    background-size: 300px 150px
+  }
+
+  .userinput {
+ 
+    width: 300px;
+   
+  }
 }
