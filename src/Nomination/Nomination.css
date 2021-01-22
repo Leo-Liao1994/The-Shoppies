@@ -91,4 +91,14 @@ border-radius: 50px;
   .popup{
     width: 70%;
   }
+} 
+
+
+@media (max-width: 500px) {
+  .nominationButton{
+    border-radius: 50px;
+    margin-top: 2%;
+    margin-left: 70%; 
+
+    } 
 }
