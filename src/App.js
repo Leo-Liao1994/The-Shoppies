@@ -24,7 +24,7 @@ state = {
 inputHandler = (event) => {
 let nominationTitle= []
 let moviesResult = []
-  axios.get(`https://www.omdbapi.com/?s=${event.target.value}&apikey=${API_KEY}`) 
+  axios.get(`https://www.omdbapi.com/?s=${event.target.value}&apikey=1541d577`) 
   .then(res => {
 
     this.state.nomination.forEach(element => nominationTitle.push(element.Title))

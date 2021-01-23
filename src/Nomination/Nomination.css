@@ -94,20 +94,13 @@ border-radius: 50px;
 } 
 
 
-@media (max-width: 500px) {
-  .nominationButton{
-    border-radius: 50px;
-    margin-top: 2%;
-    margin-left: 70%; 
-    position: absolute;
-    } 
-}
+
 
 @media (max-width: 1000px) {
   .nominationButton{
     border-radius: 50px;
     margin-top: 2%;
-    margin-left: 75%; 
+    margin-left: 70%; 
     position: absolute;
     } 
 }
