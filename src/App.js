@@ -34,11 +34,10 @@ let moviesResult = []
       for(let movies of res.data.Search.slice(0,6)) {
       if(nominationTitle.indexOf(movies.Title) === -1){
         movies.nominated = false
-        moviesResult.push(movies)
         } else {
           movies.nominated = true
-          moviesResult.push(movies)
         }
+        moviesResult.push(movies)
        }
       this.setState( 
         {result: moviesResult}) 
