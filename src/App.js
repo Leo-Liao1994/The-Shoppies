@@ -13,7 +13,7 @@ const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
 
 class App extends Component  {
 state = {
-  userInput: "", 
+  userInput: "",
   result: [], 
   nomination : [],
   showAlert: false
@@ -22,9 +22,9 @@ state = {
 
 
 inputHandler = (event) => {
-let nominationTitle= []
-let moviesResult = []
-  axios.get(`https://www.omdbapi.com/?s=${event.target.value}&apikey=${API_KEY}`) 
+let nominationTitle= [];
+let moviesResult = [];
+  axios.get(`https://www.omdbapi.com/?s=${event.target.value}&apikey=1541d577`) 
   .then(res => {
 
     this.state.nomination.forEach(element => nominationTitle.push(element.Title))
@@ -33,14 +33,14 @@ let moviesResult = []
     if(res.data.Search !== undefined){
       for(let movies of res.data.Search.slice(0,6)) {
       if(nominationTitle.indexOf(movies.Title) === -1){
-        movies.nominated = false
+        movies.nominated = false;
         } else {
-          movies.nominated = true
+          movies.nominated = true;
         }
-        moviesResult.push(movies)
+        moviesResult.push(movies);
        }
       this.setState( 
-        {result: moviesResult}) 
+        {result: moviesResult}); 
     } 
   })
 }
@@ -50,7 +50,7 @@ nominateHandler = (index) => {
    nomination.push(this.state.result[index])
    this.setState({nomination: nomination}) 
    if(this.state.nomination.length >= 4) {
-    this.setState({showAlert: true})
+    this.setState({showAlert: true});
    } 
   }
 
@@ -59,7 +59,7 @@ removeNominationHandler = (index) => {
   nomination.splice(index,1)
   this.setState({nomination: nomination}) 
   if(this.state.nomination.length <= 5) {
-    this.setState({showAlert: false})
+    this.setState({showAlert: false});
    } 
 }
 
@@ -68,7 +68,7 @@ render (){
   let results = null; 
   let search = null; 
   let nominateList = null; 
-  let nominationTitle= []
+  let nominationTitle= [];
 
   this.state.nomination.forEach(element => nominationTitle.push(element.Title))
 
@@ -100,7 +100,7 @@ render (){
       
       
 
-      if( this.state.userInput.length >= 24) {
+      if( this.state.userInput.length >= 24 && this.state.result.length > 0) {
        search = (
        <h5 className = "result_for" > {this.state.userInput}</h5>)
 
